@@ -12,7 +12,7 @@ namespace CaloriesCounter.Models
         public FoodsInMeal() { }
         [Key]
         public int ID { get; set; }
-        //public Meals Meal { get; set; }   // שיוך לארוחה
+        public Meal Meal { get; set; }      // שיוך לארוחה
         public Food Food { get; set; }      // שיוך למאכל
         public int Quantity { get; set; }   // כמות בגרם
     }
