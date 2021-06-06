@@ -10,17 +10,21 @@ namespace CaloriesCounter.Models
     public class User
     {
         public User() { }
+
         [Key]
         public int ID { get; set; }
 
         [Display(Name = "שם פרטי")]
-        public string FirstName { get; set; }       // שם פרטי
-
+        public string FirstName { get; set; } 
+        
         [Display(Name = "שם משפחה")]
-        public string LastName { get; set; }        // משפחה
+        public string LastName { get; set; }
 
         [Display(Name = "תאריך לידה")]
         [DataType(DataType.Date)]
-        public DateTime BirthOfDate { get; set; }   // תאריך לידה
+        public DateTime BirthOfDate { get; set; }
+        
+        public List<Targets> Targets { get; set; }  // יעדים
+        public List<Meal> Meals { get; set; }      // רשימת ארוחות
     }
 }
