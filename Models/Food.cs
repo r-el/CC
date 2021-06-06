@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaloriesCounter.Models
 {
+    // מאכל
     public class Food
     {
         public Food() { }

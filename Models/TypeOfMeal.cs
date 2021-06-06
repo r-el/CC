@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CaloriesCounter.Models
 {
+    // סוג הארוחה 
     public class TypeOfMeal
     {
-        // סוג הארוחה 
         public TypeOfMeal() { }
         [Key]
         public int ID { get; set; }
