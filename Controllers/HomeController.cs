@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using static CaloriesCounter.Models.Dal;
 
 namespace CaloriesCounter.Controllers
 {
@@ -20,6 +21,7 @@ namespace CaloriesCounter.Controllers
 
         public IActionResult Index()
         {
+            DAL.Get.Foods.ToList();
             return View();
         }
 
