@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace CaloriesCounter.Models
 {
-    // סוג ארוחה 
-    public class TypeOfMeal
+    // משקלים
+    public class Weights
     {
-        public TypeOfMeal() { }
+        public Weights() { }
         [Key]
         public int ID { get; set; }
-        public string Name { get; set; } // שם הארוחה
+        public User User { get; set; }          // שיוך ליוזר
+        public decimal Weight { get; set; }     // משקל
     }
 }

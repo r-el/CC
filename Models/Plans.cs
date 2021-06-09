@@ -7,6 +7,7 @@ using CaloriesCounter.Models;
 
 namespace c_c.Models
 {
+    // תוכניות
     public class Plans
     {
         public Plans() { Targets = new List<Targets>(); }
