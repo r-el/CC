@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CaloriesCounter.Models;
 
-namespace c_c.Models
+namespace CaloriesCounter.Models
 {
     // תוכניות
     public class Plans
