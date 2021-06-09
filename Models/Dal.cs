@@ -60,7 +60,6 @@ namespace CaloriesCounter.Models
             public DbSet<TypeOfMeal> TypesOfMeals { get; set; }     // סוג ארוחה
             public DbSet<FoodsInMeal> FoodsInMeal { get; set; }     // מאכלים בארוחה
             public DbSet<Meal> Meals { get; set; }                  // ארוחות
-
         }
     }
 }

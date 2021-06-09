@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,6 +25,27 @@ namespace CaloriesCounter.Controllers
         {
             DAL.Get.Foods.ToList();
             return View();
+        }
+
+        // תוכנית חדשה
+        public IActionResult NewPlan(int? id)
+        {
+            if (id == null) return RedirectToAction(nameof(Connect)); // ודא קבלת ערך
+            List<Food> foods = DAL.Get.Foods.ToList();
+            // תמצא לי את המשתמש ע"י איידי
+            User user = DAL.Get.Users.Include(u=> u.Plans).ToList().Find(u => u.ID == id);
+
+            // אם לא מצאת את המשתמש שלח אותו חזרה למסך התחברות
+            if (user == null) return RedirectToAction(nameof(Connect));
+
+
+            VMNewPlan VM = new VMNewPlan
+            {
+                User = user,
+                Types = DAL.Get.TypesOfMeals.ToList(),
+                Foods = foods
+            };
+            return View(VM);
         }
 
         // משתמש חדש
