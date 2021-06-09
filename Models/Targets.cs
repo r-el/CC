@@ -1,16 +1,17 @@
-﻿using System;
+﻿using c_c.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace CaloriesCounter.Models
 {
     // יעדים
     public class Targets
     {
-        public Targets() { }
-
+        public Targets() { Meals = new List<Meal>(); }
         [Key]
         public int ID { get; set; }
 
@@ -31,5 +32,22 @@ namespace CaloriesCounter.Models
         public int Sodium { get; set; }         // נתרן
         [Display(Name = "סוכרים")]
         public int Sugar { get; set; }          // סוכרים
+
+        public List<Meal> Meals { get; set; }   // ארוחות
+        public Plans Plan { get; set; }         // שיוך לתכנית
+
+        // הוספת ארוחה ליעדים
+        public void AddMeal(Meal meal)
+        {
+            Meals.Add(meal);
+            meal.Target = this;
+        }
+        // יצירת ארוחה והכנסתה ליעדים
+        public void AddMeal(List<Food> foods, DateTime date, TypeOfMeal typeOfMeal)
+        {
+            Meal meal = new Meal {Date=date, TypeOfMeal=typeOfMeal};
+            meal.AddFoods(foods);
+            AddMeal(meal);
+        }
     }
 }
