@@ -19,6 +19,20 @@ namespace CaloriesCounter.Models
         public List<FoodsInMeal> Foods { get; set; }   // מאכלים בארוחה
         public Targets Target { get; set; }            // שיוך הארוחה ליעדים
 
+        // חישוב סך כל הקלוריות בארוחה
+        public int SumCalories
+        {
+            get
+            {
+                double sum = 0.0;
+                foreach (FoodsInMeal food in Foods)
+                {
+                    sum += food.Food.Calories * food.Quantity;
+                }
+                return (int)sum;
+            }
+        }
+
         // הוספת כמה מאכלים לארוחה
         public void AddFoods(List<Food> foods)
         {
