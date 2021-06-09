@@ -9,10 +9,12 @@ namespace CaloriesCounter.Models
     // משקלים
     public class Weights
     {
-        public Weights() { }
+        public Weights() { Date = DateTime.Now; }// תאריך של ההוספה
         [Key]
         public int ID { get; set; }
         public User User { get; set; }          // שיוך ליוזר
         public decimal Weight { get; set; }     // משקל
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }      // זמן עדכון המשקל
     }
 }

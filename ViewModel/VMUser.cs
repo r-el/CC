@@ -13,7 +13,8 @@ namespace CaloriesCounter.ViewModel
         public VMUser() { User = new User(); }
 
         public User User { get; set; }          // משתמש
-        [Display(Name = "משקל")]
-        public decimal Weight { get; set; }     // משקלים
+        [Display(Name = "תאריך משקל")]
+        [DataType(DataType.Date)]
+        public decimal Weight { get; set; }     // משקל
     }
 }
