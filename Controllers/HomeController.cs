@@ -25,6 +25,13 @@ namespace CaloriesCounter.Controllers
             return View();
         }
 
+        // משתמש חדש
+        public IActionResult NewUser()
+        {
+            User user = new User();
+            return View(user);
+        }
+
         public IActionResult Privacy()
         {
             return View();
