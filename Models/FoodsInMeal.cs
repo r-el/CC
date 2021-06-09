@@ -15,6 +15,6 @@ namespace CaloriesCounter.Models
         public Meal Meal { get; set; }      // שיוך לארוחה
         public Food Food { get; set; }      // שיוך למאכל
         [Display(Name = "כמות")]
-        public int Quantity { get; set; }   // כמות בגרם
+        public double Quantity { get; set; }   // כמות בגרם
     }
 }
