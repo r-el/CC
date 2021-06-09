@@ -42,6 +42,32 @@ namespace CaloriesCounter.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // דף כניסה
+        public IActionResult Connect()
+        {
+            VMUser user = new VMUser();
+            return View(user);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Connect(VMUser vmuser)
+        {
+            // תמצא את המשתמש ע"י שם משתמש וסיסמא
+            List<User> users = (from u in DAL.Get.Users
+                                where (u.Email == vmuser.User.Email) && (u.Password == vmuser.User.Password)
+                                select u).ToList<User>();
+            if (users != null)
+            {
+                User user = new User();
+                foreach (User u in users)
+                {
+                    user = u;
+                }
+                return RedirectToAction("NewPlan, user");
+            }
+            return View(vmuser);
+        }
+
         public IActionResult Privacy()
         {
             return View();
