@@ -54,11 +54,13 @@ namespace CaloriesCounter.Models
 
             // יצירת טבלאות
             public DbSet<User> Users { get; set; }                  // משתמשים
+            public DbSet<Plans> Plans { get; set; }                 // תוכניות
             public DbSet<Targets> Targets { get; set; }             // יעדים
             public DbSet<Food> Foods { get; set; }                  // מאכלים
             public DbSet<TypeOfMeal> TypesOfMeals { get; set; }     // סוג ארוחה
             public DbSet<FoodsInMeal> FoodsInMeal { get; set; }     // מאכלים בארוחה
             public DbSet<Meal> Meals { get; set; }                  // ארוחות
+
         }
     }
 }
