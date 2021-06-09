@@ -41,5 +41,14 @@ namespace CaloriesCounter.Models
         {
             Weights.Add(new Weights { Weight = weight, User = this });
         }
+        // חישוב גיל המשתמש
+        public int Age
+        {
+            get
+            {
+                return DateTime.Now.Year - BirthOfDate.Year;
+
+            }
+        }
     }
 }
