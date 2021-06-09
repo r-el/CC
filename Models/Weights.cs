@@ -14,6 +14,7 @@ namespace CaloriesCounter.Models
         public int ID { get; set; }
         public User User { get; set; }          // שיוך ליוזר
         public decimal Weight { get; set; }     // משקל
+        [Display(Name = "תאריך משקל")]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }      // זמן עדכון המשקל
     }

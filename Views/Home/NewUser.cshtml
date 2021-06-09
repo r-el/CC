@@ -1,0 +1,44 @@
+﻿@model CaloriesCounter.ViewModel.VMUser
+@{ViewData["Title"] = "NewUser";}
+
+<h1>משתמש חדש</h1>
+
+<h4>יצירת משתמש חדש</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NewUser">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*שם פרטי*@
+            <div class="form-group">
+                <label asp-for="User.FirstName" class="control-label"></label>
+                <input asp-for="User.FirstName" class="form-control" />
+                <span asp-validation-for="User.FirstName" class="text-danger"></span>
+            </div>
+            @*שם משפחה*@
+            <div class="form-group">
+                <label asp-for="User.LastName" class="control-label"></label>
+                <input asp-for="User.LastName" class="form-control" />
+                <span asp-validation-for="User.LastName" class="text-danger"></span>
+            </div>
+            @*תאריך לידה*@
+            <div class="form-group">
+                <label asp-for="User.BirthOfDate" class="control-label"></label>
+                <input asp-for="User.BirthOfDate" class="form-control" />
+                <span asp-validation-for="User.BirthOfDate" class="text-danger"></span>
+            </div>
+            @*משקל*@
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="צור" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div> <a asp-action="Index">חזרה לרשימה</a> </div>
+@section Scripts { @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} }
