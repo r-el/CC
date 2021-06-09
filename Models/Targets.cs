@@ -36,6 +36,33 @@ namespace CaloriesCounter.Models
         public List<Meal> Meals { get; set; }   // ארוחות
         public Plans Plan { get; set; }         // שיוך לתכנית
 
+
+        // חישוב סך כל הקלוריות של כל הארוחות ביום
+        public int SumCaloriesByDate(DateTime date)
+        {
+            int sum = 0;
+            foreach (Meal meal in Meals)
+            {
+                if (meal.Date.ToShortDateString() == date.ToShortDateString())
+                    sum += meal.SumCalories;
+            }
+            return sum;
+        }
+
+        // חישוב סך כל הקלוריות של כל הארוחות בתכנית
+        public int SumCalories
+        {
+            get
+            {
+                int sum = 0;
+                foreach (Meal meal in Meals)
+                {
+                    sum += meal.SumCalories;
+                }
+                return sum;
+            }
+        }
+
         // הוספת ארוחה ליעדים
         public void AddMeal(Meal meal)
         {
