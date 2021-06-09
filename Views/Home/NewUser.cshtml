@@ -1,9 +1,8 @@
 ﻿@model CaloriesCounter.ViewModel.VMUser
-@{ViewData["Title"] = "NewUser";}
+@{ViewData["Title"] = "הרשמה";}
 
-<h1>משתמש חדש</h1>
+<h1>הירשם</h1>
 
-<h4>יצירת משתמש חדש</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,6 +19,18 @@
                 <label asp-for="User.LastName" class="control-label"></label>
                 <input asp-for="User.LastName" class="form-control" />
                 <span asp-validation-for="User.LastName" class="text-danger"></span>
+            </div>
+            @*מייל*@
+            <div class="form-group">
+                <label asp-for="User.Email" class="control-label"></label>
+                <input asp-for="User.Email" class="form-control" />
+                <span asp-validation-for="User.Email" class="text-danger"></span>
+            </div>
+            @*סיסמא*@
+            <div class="form-group">
+                <label asp-for="User.Password" class="control-label"></label>
+                <input asp-for="User.Password" class="form-control" />
+                <span asp-validation-for="User.Password" class="text-danger"></span>
             </div>
             @*תאריך לידה*@
             <div class="form-group">

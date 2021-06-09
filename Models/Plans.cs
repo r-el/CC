@@ -14,7 +14,7 @@ namespace CaloriesCounter.Models
         [Key]
         public int ID { get; set; }
         public User User { get; set; }              // שיוך ליוזר
-        public DateTime Date { get; set; }          // תאריך
+        public DateTime Date { get; set; }          // תאריך התוכנית
         public List<Targets> Targets { get; set; }  // יעדים
 
         // הוספת מספר תוכניות
