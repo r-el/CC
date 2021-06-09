@@ -1,4 +1,5 @@
 ﻿using CaloriesCounter.Models;
+using CaloriesCounter.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -28,8 +29,17 @@ namespace CaloriesCounter.Controllers
         // משתמש חדש
         public IActionResult NewUser()
         {
-            User user = new User();
-            return View(user);
+            VMUser vmuser = new VMUser();
+            return View(vmuser);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult NewUser(VMUser vmuser)
+        {
+            DAL.Get.Users.Add(vmuser.User);
+            vmuser.User.AddWeight(vmuser.Weight);
+            DAL.Get.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Privacy()
